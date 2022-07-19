@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
@@ -18,8 +16,11 @@ private int id;
 private String Libelle;
 private String Description;
 private String Photo;
-private String Leux;
+private String Lieux;
 private String Cause;
+@OneToMany(mappedBy = "accidents")
+private Collection<Vehicules>vehicules;
+
 
 
 }

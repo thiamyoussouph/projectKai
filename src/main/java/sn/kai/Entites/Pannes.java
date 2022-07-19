@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
@@ -17,5 +15,6 @@ public class Pannes {
     private  int id;
     private String Libelle;
     private Date DeteEnregistrement;
-
+    @ManyToMany
+    private Collection<Vehicules>vehicules;
 }
